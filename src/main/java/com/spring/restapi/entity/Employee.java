@@ -1,11 +1,12 @@
 package com.spring.restapi.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name="employee")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
 public class Employee {
@@ -23,13 +24,7 @@ public class Employee {
     @Column(name="email")
     private String email;
 
-    public Employee(){}
-
-    public Employee(String maNV, String name, String email) {
-        this.maNV = maNV;
-        this.name = name;
-        this.email = email;
-    }
+    // Contructor
 
     // Getter, Setter
 }
