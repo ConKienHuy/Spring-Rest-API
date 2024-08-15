@@ -27,9 +27,6 @@ public class EmployeeRestController {
 
     @GetMapping("/employees/{id}") // Path variable
     public Employee employeeById(@PathVariable int id) {
-        if(id < 0) {
-            throw new EmployeeNotFoundException("Employee with id " + id + " not found");
-        }
         return employeeService.getEmployeeById(id);
     } // Get one employee
 
@@ -40,8 +37,6 @@ public class EmployeeRestController {
 
     @PutMapping("/employees/{id}")
     public Employee updateEmployee(@PathVariable int id, @RequestBody Employee updateEmployee) {
-        if(id < 0)
-        {throw new EmployeeNotFoundException("Employee with id " + id + " not found");}
         Employee saveEmployee = employeeService.getEmployeeById(id);
         saveEmployee.setMaNV(updateEmployee.getMaNV());
         saveEmployee.setName(updateEmployee.getName());
@@ -52,9 +47,6 @@ public class EmployeeRestController {
 
     @DeleteMapping("/employees/{id}")
     public void deleteEmployee(@PathVariable int id) {
-        if(id < 0) {
-            throw new EmployeeNotFoundException("Employee with id " + id + " not found");
-        }
         employeeService.deleteEmployee(id);
     } // Delete employee
 
